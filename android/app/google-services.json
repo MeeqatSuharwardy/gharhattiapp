@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "352612124147",
+    "project_id": "gharhatti-5853b",
+    "storage_bucket": "gharhatti-5853b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352612124147:android:14321c0b1261f1d37f7e86",
+        "android_client_info": {
+          "package_name": "com.gharhattimobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352612124147-k2i1saptmarkkgit7sheaaiv88chk8t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe-Oo92_3GWBaXoiFIr7kmszIo24Ad28I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352612124147-k2i1saptmarkkgit7sheaaiv88chk8t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
