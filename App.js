@@ -11,7 +11,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from './Screen/SplashScreen';
 import LoginScreen from './Screen/LoginScreen';
 import RegisterScreen from './Screen/RegisterScreen';
-import DrawerNavigationRoutes from './Screen/DrawerNavigationRoutes';
+import DrawerNavigationRoutes from './Screen/DrawerScreens/MainScreen';
 import MainScreen from './Screen/DrawerScreens/MainScreen';
 // import OtpInput from './Screen/OtpScreen/OtpInput';
 

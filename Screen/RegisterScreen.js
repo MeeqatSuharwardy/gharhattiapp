@@ -11,19 +11,20 @@ import {
   TouchableOpacity,
   ScrollView,
   InputField,
+  Alert,
 } from 'react-native';
 import {CheckBox} from 'react-native';
 import Loader from './Components/Loader';
 
 const RegisterScreen = props => {
   const [mobilenumber, setmobile_number] = useState('');
-  const [email, setemail] = useState('');
+  const [Useremail, setUseremail] = useState('');
   const [userAge, setUserAge] = useState('');
   const [userAddress, setUserAddress] = useState('');
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState('');
-  const [isRegistraionSuccess, setIsRegistraionSuccess] = useState(false);
+  const [errortext, setErrortext] = useState(''); 
+  const [isRegistraionSuccess, setIsRegistraionSuccess] = useState('');
 
   const emailInputRef = createRef();
   const ageInputRef = createRef();
@@ -32,11 +33,11 @@ const RegisterScreen = props => {
   const [isSelected, setSelection] = useState(false);
   const handleSubmitButton = () => {
     setErrortext('');
-    if (!mobilenumber) {
-      alert('Please fill Mobile Number');
-      return;
-    }
-    // if (!business_name) {
+    // if (!mobilenumber) {
+    //   alert('Please fill Mobile Number');
+    //   return;
+    // }
+    // // if (!business_name) {
     //   alert('Please fill business name');
     //   return;
     // }
@@ -51,7 +52,7 @@ const RegisterScreen = props => {
     //Show Loader
     setLoading(true);
     var dataToSend = {
-      email: email,
+      email: Useremail,
       password: userPassword,
     };
     var formBody = [];
@@ -67,6 +68,8 @@ const RegisterScreen = props => {
       body: formBody,
       headers: {
         //Header Defination
+        'Accept': 'application/json, text/plain, */*',  // It can be used to overcome cors errors
+
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
     })
@@ -76,7 +79,7 @@ const RegisterScreen = props => {
         setLoading(false);
         console.log(responseJson);
         // If server response message same as Data Matched
-        if (responseJson.status === 'success') {
+        if (responseJson.status === '200') {
           setIsRegistraionSuccess(true);
           console.log('Registration Successful. Please Login to proceed');
         } else {
@@ -136,8 +139,8 @@ const RegisterScreen = props => {
           />
         </View>
         <KeyboardAvoidingView enabled>
-          <View style={styles.SectionStyle}>
-            <TextInput
+          {/* <View style={styles.SectionStyle}> */}
+            {/* <TextInput
               style={styles.inputStyle}
               onChangeText={mobilenumber => setmobile_number(mobilenumber)}
               underlineColorAndroid="#f000"
@@ -150,11 +153,11 @@ const RegisterScreen = props => {
               }
               blurOnSubmit={false}
             />
-          </View>
+          </View> */}
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={email => setemail(email)}
+              onChangeText={Useremail => setUseremail(Useremail)}
               underlineColorAndroid="#f000"
               placeholder="Enter Email"
               placeholderTextColor="#8b9cb5"
@@ -248,7 +251,7 @@ const styles = StyleSheet.create({
   },
   inputStyle: {
     flex: 1,
-    color: 'white',
+    color: 'black',
     paddingLeft: 15,
     paddingRight: 15,
     borderWidth: 1,

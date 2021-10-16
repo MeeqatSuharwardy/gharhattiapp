@@ -10,6 +10,8 @@ import HomeScreen from './DrawerScreens/HomeScreen';
 import SettingsScreen from './DrawerScreens/SettingsScreen';
 import CustomSidebarMenu from './Components/CustomSidebarMenu';
 import NavigationDrawerHeader from './Components/NavigationDrawerHeader';
+import LoginScreen from './LoginScreen';
+import RegisterScreen from './RegisterScreen';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,6 +63,17 @@ const settingScreenStack = ({navigation}) => {
           title: 'Settings', //Set Header Title
         }}
       />
+      <Stack.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{header:false}}
+      />
+      <Stack.Screen
+        name="RegisterScreen"
+        component={RegisterScreen}
+        options={{header:false}}
+      />
+
     </Stack.Navigator>
   );
 };
@@ -88,6 +101,18 @@ const DrawerNavigatorRoutes = (props) => {
         options={{drawerLabel: 'Setting Screen'}}
         component={settingScreenStack}
       />
+      <Drawer.Screen
+        name="LoginScreen"
+        component={LoginScreen}
+        options={{header:false}}
+        component={LoginScreenStack}
+      />
+      <Drawer.Screen
+        name="RegisterScreen"
+        component={RegisterScreenStack}
+        options={{header:false}}
+      />
+
     </Drawer.Navigator>
   );
 };

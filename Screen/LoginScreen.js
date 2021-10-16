@@ -24,8 +24,8 @@ const LoginScreen = ({navigation}) => {
   const [userPassword, setUserPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
-
   const passwordInputRef = createRef();
+
 
   const handleSubmitPress = () => {
     setErrortext('');
@@ -53,31 +53,33 @@ const LoginScreen = ({navigation}) => {
       headers: {
         //Header Defination
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        // 'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        firstParam: 'userEmail',
-        secondParam: 'userPassword',
-      }),
-    })
-      .then(response => response.json())
-      .then(responseJson => {
+          })
+      .then((response) => response.json())
+      .then((responseJson) => {
         //Hide Loader
         setLoading(false);
         console.log(responseJson);
-        // this.props.navigation.navigate('MainScreen');
         // If server response message same as Data Matched
-        if (responseJson.status === 'success') {
+        if (responseJson.status === '200') {
           AsyncStorage.setItem('user_id', responseJson.data.email);
           console.log(responseJson.data.email);
-          navigation.replace('DrawerNavigationRoutes');
+          // navigation.navigate('HomeSreen')
+          
+        } else {
+          // setErrortext(responseJson.msg);
+          // Alert.alert('Button Clicked!')
+
         }
       })
-      .catch(error => {
+      .catch((error) => {
         //Hide Loader
         setLoading(false);
-        console.error(error);
+        Alert.alert(error);
       });
   };
+
 
   return (
     <View style={styles.mainBody}>
@@ -105,7 +107,7 @@ const LoginScreen = ({navigation}) => {
             <View>
               <InputField
                 onChangeText={UserEmail => setUserEmail(UserEmail)}
-                labelText="Mobile Number*"
+                labelText="Email Address*"
                 keyboardType="email-address"
                 labelTextSize={14}
                 labelColor={'grey'}
