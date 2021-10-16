@@ -65,7 +65,7 @@ const LoginScreen = ({navigation}) => {
         if (responseJson.status === '200') {
           AsyncStorage.setItem('user_id', responseJson.data.email);
           console.log(responseJson.data.email);
-          // navigation.navigate('HomeSreen')
+          navigation.push ('HomeSreen')
           
         } else {
           // setErrortext(responseJson.msg);
