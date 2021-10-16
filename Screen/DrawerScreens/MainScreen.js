@@ -18,7 +18,7 @@ import {
   Dimensions,
 } from 'react-native';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Loader from '../Components/Loader';
 
