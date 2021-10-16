@@ -54,6 +54,10 @@ const LoginScreen = ({navigation}) => {
         //Header Defination
         'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
       },
+      body: JSON.stringify({
+        firstParam: 'userEmail',
+        secondParam: 'userPassword',
+      }),
     })
       .then(response => response.json())
       .then(responseJson => {
@@ -65,8 +69,8 @@ const LoginScreen = ({navigation}) => {
         if (responseJson.status === 'success') {
           AsyncStorage.setItem('user_id', responseJson.data.email);
           console.log(responseJson.data.email);
-
-        } 
+          navigation.replace('DrawerNavigationRoutes');
+        }
       })
       .catch(error => {
         //Hide Loader
